@@ -10,6 +10,27 @@ const telefonePessoal = document.getElementById("telefonePessoal");
 const telefoneEmergencia = document.getElementById("telefoneEmergencia");
 const cepInput = document.getElementById("cep");
 const nascimentoInput = document.getElementById("nascimento");
+const voluntarioSelect = document.getElementById("voluntario");
+const campoMinisterio = document.getElementById("campoMinisterio");
+const ministerioInput = document.getElementById("ministerio");
+
+voluntarioSelect.addEventListener("change", function () {
+
+    if (this.value === "Sim") {
+
+        campoMinisterio.style.display = "block";
+
+        ministerioInput.required = true;
+
+    } else {
+
+        campoMinisterio.style.display = "none";
+
+        ministerioInput.required = false;
+
+        ministerioInput.value = "";
+    }
+});
 
 /* =========================
    MÁSCARAS
@@ -89,6 +110,7 @@ form.addEventListener("submit", function (event) {
 
         pizzaPastor: document.getElementById("pizzaPastor").value,
         voluntario: document.getElementById("voluntario").value,
+        ministerio: document.getElementById("ministerio").value,
         batizado: document.getElementById("batizado").value,
         encontroDeus: document.getElementById("encontroDeus").value,
         volts: document.getElementById("volts").value

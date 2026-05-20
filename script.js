@@ -35,17 +35,30 @@ cepInput.addEventListener("input", function (e) {
     e.target.value = valor;
 });
 
+nascimentoInput.addEventListener("input", function (e) {
+
+    let valor = e.target.value.replace(/\D/g, "");
+
+    if (valor.length > 2) {
+        valor = valor.replace(/^(\d{2})(\d)/, "$1/$2");
+    }
+
+    if (valor.length > 5) {
+        valor = valor.replace(/^(\d{2})\/(\d{2})(\d)/, "$1/$2/$3");
+    }
+
+    e.target.value = valor;
+});
+
 /* =========================
    VALIDAÇÃO DATA
 ========================= */
-nascimentoInput.addEventListener("change", function () {
+nascimentoInput.addEventListener("blur", function () {
 
-    if (!this.value) return;
+    const regex = /^\d{2}\/\d{2}\/\d{4}$/;
 
-    const ano = this.value.split("-")[0];
-
-    if (ano.length !== 4) {
-        alert("Ano inválido. O ano deve ter exatamente 4 dígitos.");
+    if (!regex.test(this.value)) {
+        alert("Digite a data no formato dd/mm/aaaa");
         this.value = "";
     }
 });

@@ -10,35 +10,26 @@ const telefonePessoal = document.getElementById("telefonePessoal");
 const telefoneEmergencia = document.getElementById("telefoneEmergencia");
 const cepInput = document.getElementById("cep");
 const nascimentoInput = document.getElementById("nascimento");
+const voluntarioSelect = document.getElementById("voluntario");
+const campoMinisterio = document.getElementById("campoMinisterio");
+const ministerioInput = document.getElementById("ministerio");
 
-document.addEventListener("DOMContentLoaded", function () {
+voluntarioSelect.addEventListener("change", function () {
 
-    const voluntarioSelect = document.getElementById("voluntario");
+    if (this.value === "Sim") {
 
-    const campoMinisterio =
-        document.getElementById("campoMinisterio");
+        campoMinisterio.style.display = "block";
 
-    const ministerioInput =
-        document.getElementById("ministerio");
+        ministerioInput.required = true;
 
-    voluntarioSelect.addEventListener("change", function () {
+    } else {
 
-        if (this.value === "Sim") {
+        campoMinisterio.style.display = "none";
 
-            campoMinisterio.style.display = "block";
+        ministerioInput.required = false;
 
-            ministerioInput.required = true;
-
-        } else {
-
-            campoMinisterio.style.display = "none";
-
-            ministerioInput.required = false;
-
-            ministerioInput.value = "";
-        }
-    });
-
+        ministerioInput.value = "";
+    }
 });
 
 /* =========================

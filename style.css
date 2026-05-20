@@ -27,16 +27,23 @@ form {
     gap: 10px;
 }
 
-input, select {
+input,
+select,
+#campoMinisterio {
     width: 100%;
+    box-sizing: border-box;
+}
+
+input,
+select {
     padding: 12px;
     border: none;
     border-radius: 8px;
     font-size: 14px;
-    box-sizing: border-box;
 }
 
 button {
+    width: 100%;
     margin-top: 10px;
     padding: 12px;
     border: none;
@@ -44,6 +51,7 @@ button {
     color: white;
     border-radius: 8px;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 button:hover {

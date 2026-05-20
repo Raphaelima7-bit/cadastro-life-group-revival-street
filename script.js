@@ -1,8 +1,6 @@
 
 const form = document.getElementById("formCadastro");
 
-let pessoas = JSON.parse(localStorage.getItem("pessoas")) || [];
-
 /* =========================
    ELEMENTOS
 ========================= */
@@ -119,24 +117,6 @@ form.addEventListener("submit", function (event) {
         encontroDeus: document.getElementById("encontroDeus").value,
         volts: document.getElementById("volts").value
     };
-
-    /* =========================
-       BLOQUEIO EMAIL DUPLICADO
-    ========================= */
-    const emailJaExiste = pessoas.some(p =>
-        p.email.toLowerCase() === pessoa.email.toLowerCase()
-    );
-
-    if (emailJaExiste) {
-        alert("Este e-mail já foi cadastrado.");
-        return;
-    }
-
-    /* =========================
-       SALVAR LOCAL
-    ========================= */
-    pessoas.push(pessoa);
-    localStorage.setItem("pessoas", JSON.stringify(pessoas));
 
     /* =========================
        ENVIAR PARA PLANILHA (EXCEL)
